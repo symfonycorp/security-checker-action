@@ -1,0 +1,26 @@
+name: 'The PHP Security Checker'
+description: 'Checks composer.json for known vulnerabilities in your package dependencies'
+branding:
+    icon: 'umbrella'
+    color: 'gray-dark'
+inputs:
+    lock:
+        description: 'The path to composer.lock is stored (root directory by default)'
+        required: false
+        default: './composer.lock'
+    disable-exit-code:
+        description: 'Whether to fail when issues are detected (false by default)'
+        required: false
+        default: 0
+outputs:
+    vulns:
+        description: 'The detected vulnerabilities as JSON'
+runs:
+    using: 'docker'
+    image: 'Dockerfile'
+    args:
+        - /symfony
+        - check:security
+        - "--dir"
+        - ${{ inputs.lock }}
+        - "--disable-exit-code=${{ inputs.disable-exit-code }}"

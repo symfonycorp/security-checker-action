@@ -54,4 +54,4 @@ do something with them in another step:
               disable-exit-code: 1
           id: security-check
         - name: Display the vulnerabilities as JSON
-        run: echo ${{ steps.security-check.outputs.vulns }}
+          run: echo ${{ steps.security-check.outputs.vulns }}

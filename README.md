@@ -29,10 +29,10 @@ To speed up security checks, you can cache the vulnerability database:
     steps:
         - uses: actions/checkout@v2
         - uses: actions/cache@v2
-            id: cache-db
-            with:
-                path: ~/.symfony/cache
-                key: db
+          id: cache-db
+          with:
+              path: ~/.symfony/cache
+              key: db
         - uses: symfonycorp/security-checker-action@v1
 
 If the `composer.lock` is not in the repository root directory, pass is as an
@@ -41,8 +41,8 @@ input:
     steps:
         - uses: actions/checkout@v2
         - uses: symfonycorp/security-checker-action@v1
-        with:
-            lock: subdir/composer.lock
+          with:
+              lock: subdir/composer.lock
 
 Instead of failing, you can also get the vulnerabilities as a JSON output and
 do something with them in another step:
@@ -50,8 +50,8 @@ do something with them in another step:
     steps:
         - uses: actions/checkout@v2
         - uses: symfonycorp/security-checker-action@v1
-        with:
-            disable-exit-code: 1
-        id: security-check
+          with:
+              disable-exit-code: 1
+          id: security-check
         - name: Display the vulnerabilities as JSON
         run: echo ${{ steps.security-check.outputs.vulns }}

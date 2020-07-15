@@ -24,6 +24,17 @@ dependencies, use this action:
         - uses: actions/checkout@v2
         - uses: symfonycorp/security-checker-action@v1
 
+To speed up security checks, you can cache the vulnerability database:
+
+    steps:
+        - uses: actions/checkout@v2
+        - uses: actions/cache@v2
+            id: cache-db
+            with:
+                path: ~/.symfony/cache
+                key: db
+        - uses: symfonycorp/security-checker-action@v1
+
 If the `composer.lock` is not in the repository root directory, pass is as an
 input:
 

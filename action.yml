@@ -17,9 +17,8 @@ outputs:
         description: 'The detected vulnerabilities as JSON'
 runs:
     using: 'docker'
-    image: 'Dockerfile'
+    image: 'symfonycorp/cli'
     args:
-        - /symfony
         - check:security
         - "--dir"
         - ${{ inputs.lock }}

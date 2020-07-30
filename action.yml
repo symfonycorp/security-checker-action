@@ -17,7 +17,7 @@ outputs:
         description: 'The detected vulnerabilities as JSON'
 runs:
     using: 'docker'
-    image: 'symfonycorp/cli'
+    image: 'docker://symfonycorp/cli:latest'
     args:
         - check:security
         - "--dir"

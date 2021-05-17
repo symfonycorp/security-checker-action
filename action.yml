@@ -9,7 +9,7 @@ inputs:
         required: false
         default: './composer.lock'
     disable-exit-code:
-        description: 'Whether to fail when issues are detected (false by default)'
+        description: 'Whether to continue when issues are detected (false by default)'
         required: false
         default: 0
 outputs:

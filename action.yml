@@ -8,6 +8,10 @@ inputs:
         description: 'The path to composer.lock is stored (root directory by default)'
         required: false
         default: './composer.lock'
+    format:
+        description: 'The output format (ansi by default, supported: ansi, junit, markdown, json, or yaml)'
+        required: false
+        default: ansi
     disable-exit-code:
         description: 'Whether to continue when issues are detected (false by default)'
         required: false
@@ -20,6 +24,8 @@ runs:
     image: 'Dockerfile'
     args:
         - "/checker"
+        - "--format"
+        - ${{ inputs.format }}
         - "--path"
         - ${{ inputs.lock }}
         - "--disable-exit-code=${{ inputs.disable-exit-code }}"

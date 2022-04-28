@@ -6,7 +6,7 @@ This action checks your `composer.lock` for known vulnerabilities in your packag
 Inputs
 ------
 
-* `composer` *optional* The path to the `composer.lock` file (defaults to the repository root directory).
+* `lock` *optional* The path to the `composer.lock` file (defaults to the repository root directory).
 * `format` *optional* The output format (defaults to `ansi`, supported: `ansi`, `junit`, `markdown`, `json`, or `yaml`).
 * `disable-exit-code` *optional* Set it to `1` if you don't want the step to fail in case of detected vulnerabilities
 

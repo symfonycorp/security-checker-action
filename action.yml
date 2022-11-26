@@ -21,11 +21,11 @@ outputs:
         description: 'The detected vulnerabilities as JSON'
 runs:
     using: 'docker'
-    image: 'Dockerfile'
+    image: 'docker://ghcr.io/symfony-cli/symfony-cli:v5'
     args:
-        - "/checker"
+        - "security:check"
         - "--format"
         - ${{ inputs.format }}
-        - "--path"
+        - "--dir"
         - ${{ inputs.lock }}
         - "--disable-exit-code=${{ inputs.disable-exit-code }}"

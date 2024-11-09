@@ -22,13 +22,13 @@ If you want the step to fail whenever there is a security issue in one of your
 dependencies, use this action:
 
     steps:
-        - uses: actions/checkout@v2
+        - uses: actions/checkout@v4
         - uses: symfonycorp/security-checker-action@v5
 
 To speed up security checks, you can cache the vulnerability database:
 
     steps:
-        - uses: actions/checkout@v2
+        - uses: actions/checkout@v4
         - uses: actions/cache@v2
           id: cache-db
           with:
@@ -40,7 +40,7 @@ If the `composer.lock` is not in the repository root directory, pass is as an
 input:
 
     steps:
-        - uses: actions/checkout@v2
+        - uses: actions/checkout@v4
         - uses: symfonycorp/security-checker-action@v5
           with:
               lock: subdir/composer.lock
@@ -49,7 +49,7 @@ Instead of failing, you can also get the vulnerabilities as a JSON output and
 do something with them in another step:
 
     steps:
-        - uses: actions/checkout@v2
+        - uses: actions/checkout@v4
         - uses: symfonycorp/security-checker-action@v5
           with:
               disable-exit-code: 1
